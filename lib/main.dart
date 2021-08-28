@@ -40,7 +40,32 @@ class _HomeActivityState extends State<HomeActivity> {
       } else {
         _out = _out + val;
       }
+    } else if (val == "=") {
+      num2 = double.parse(Output);
+
+      if (operand == "+") {
+        _out = (num1 + num2).toString();
+      }
+
+      if (operand == "-") {
+        _out = (num1 - num2).toString();
+      }
+
+      if (operand == "*") {
+        _out = (num1 * num2).toString();
+      }
+
+      if (operand == "/") {
+        _out = (num1 / num2).toString();
+      }
+      num2 = 0.0;
+      num1 = 0.0;
+    } else {
+      _out = _out + val;
     }
+    setState(() {
+      Output = double.parse(_out).toStringAsFixed(2);
+    });
   }
 
   //  Button Widget
@@ -120,6 +145,15 @@ class _HomeActivityState extends State<HomeActivity> {
                       CalBtn("5"),
                       CalBtn("6"),
                       CalBtn("+"),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      // Custom Buttons
+                      CalBtn("1"),
+                      CalBtn("2"),
+                      CalBtn("3"),
+                      CalBtn("-"),
                     ],
                   ),
                   Row(
